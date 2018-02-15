@@ -9,13 +9,13 @@
 <div id="map"></div>
 <script>
   function initMap(){
-    var centroMap = new google.maps.LatLng(6.1976,-75.5750);
+    var positions = <%= raw @positions.to_json %>;
+    var centroMap = new google.maps.LatLng(positions[0].lat,positions[0].lon);
     var options = {
-      zoom: 14,
+      zoom: 16,
       center: centroMap
     };
     var myMap = new google.maps.Map(document.getElementById("map"), options);
-    var positions = <%= raw @positions.to_json %>;
     var i;
     for(i=0; i<positions.length; i++){
       var pos = new google.maps.LatLng(positions[i].lat, positions[i].lon);
