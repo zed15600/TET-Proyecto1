@@ -14,7 +14,7 @@ class PositionsController < ApplicationController
 
   def show
     if params[:dia] == nil
-      hoy = Time.now.midnight
+      hoy = Date.today
     else
       hoy = DateTime.parse(params[:dia]) + 5.hour
     end

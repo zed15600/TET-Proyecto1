@@ -10,7 +10,12 @@
 <script>
   function initMap(){
     var positions = <%= raw @positions.to_json %>;
-    var centroMap = new google.maps.LatLng(positions[0].lat,positions[0].lon);
+    var centroMap;
+    if(positions[0]!=null){
+      centroMap  = new google.maps.LatLng(positions[0].lat,positions[0].lon);
+    }else{
+      centroMap = new google.maps.LatLng(6.217, -75.567);
+    }
     var options = {
       zoom: 16,
       center: centroMap
